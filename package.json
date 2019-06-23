@@ -1,0 +1,29 @@
+{
+  "name": "react-duration",
+  "version": "1.0.0",
+  "description": "Duration input field for react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudtion/react-duration.git"
+  },
+  "keywords": [
+    "react",
+    "time",
+    "duration",
+    "input"
+  ],
+  "author": "William Jacobs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudtion/react-duration/issues"
+  },
+  "homepage": "https://github.com/cloudtion/react-duration#readme",
+  "dependencies": {
+    "duration-formatter": "^1.0.0",
+    "react": "^16.8.6"
+  }
+}
