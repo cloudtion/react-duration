@@ -1,6 +1,9 @@
+
 # React-Duration
 
 Easy-to-use duration input field for react.
+
+Check out the [demo here](http://cloudtion.com/demos/react-duration/).
 
 # Getting Started
 
