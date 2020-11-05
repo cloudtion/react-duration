@@ -1,6 +1,6 @@
 {
   "name": "react-duration",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Duration input field for react.",
   "main": "dist/index.js",
   "scripts": {
@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/cloudtion/react-duration#readme",
   "dependencies": {
-    "duration-formatter": "^1.0.0",
+    "duration-formatter": "^1.0.0"
+  },
+  "peerDependencies": {
     "react": "^16.8.6"
   },
   "devDependencies": {

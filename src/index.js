@@ -39,21 +39,26 @@ const BUTTON_STYLE = {
     lineHeight: '6px',
 }
 
-const DurationInput = props=>{
+function DurationInput(props){
 
   const [value, setValue] = useState(props.value>0? props.value : 0);
   const [tempValue, setTempValue] = useState(timeFromSeconds(value));
 
   const BUTTON_INCREMENT = props.buttonIncrement!=null? props.buttonIncrement : 0.1;
 
-  const setSeconds = new_seconds_value=>{
+  function setSeconds(new_seconds_value){
       
-    if( props.minValue && new_seconds_value < props.minValue ) new_seconds_value = props.minValue;
-    if( props.maxValue && new_seconds_value > props.maxValue ) new_seconds_value = props.maxValue;
+    if( props.minValue && new_seconds_value < props.minValue ){
+      new_seconds_value = props.minValue;
+    }
 
+    if( props.maxValue && new_seconds_value > props.maxValue ){
+      new_seconds_value = props.maxValue;
+    }
 
-    if( new_seconds_value < 0 ) new_seconds_value = 0;
-
+    if( new_seconds_value < 0 ){
+      new_seconds_value = 0;
+    }
 
     props.onChange && props.onChange(new_seconds_value);
 
@@ -61,7 +66,7 @@ const DurationInput = props=>{
     setTempValue(timeFromSeconds(new_seconds_value));
   }
 
-  const onChange = e=>{
+  function onChange(e){
 
     setTempValue(e.target.value);
 
@@ -73,7 +78,7 @@ const DurationInput = props=>{
     }
   }
 
-  const onBlur = e=>{
+  function onBlur(e){
 
     const parsed_seconds = secondsFromTime(e.target.value);
 

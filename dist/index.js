@@ -42,30 +42,39 @@ const BUTTON_STYLE = {
   lineHeight: '6px'
 };
 
-const DurationInput = props => {
+function DurationInput(props) {
   const [value, setValue] = (0, _react.useState)(props.value > 0 ? props.value : 0);
   const [tempValue, setTempValue] = (0, _react.useState)((0, _durationFormatter.timeFromSeconds)(value));
   const BUTTON_INCREMENT = props.buttonIncrement != null ? props.buttonIncrement : 0.1;
 
-  const setSeconds = new_seconds_value => {
-    if (props.minValue && new_seconds_value < props.minValue) new_seconds_value = props.minValue;
-    if (props.maxValue && new_seconds_value > props.maxValue) new_seconds_value = props.maxValue;
-    if (new_seconds_value < 0) new_seconds_value = 0;
+  function setSeconds(new_seconds_value) {
+    if (props.minValue && new_seconds_value < props.minValue) {
+      new_seconds_value = props.minValue;
+    }
+
+    if (props.maxValue && new_seconds_value > props.maxValue) {
+      new_seconds_value = props.maxValue;
+    }
+
+    if (new_seconds_value < 0) {
+      new_seconds_value = 0;
+    }
+
     props.onChange && props.onChange(new_seconds_value);
     setValue(new_seconds_value);
     setTempValue((0, _durationFormatter.timeFromSeconds)(new_seconds_value));
-  };
+  }
 
-  const onChange = e => {
+  function onChange(e) {
     setTempValue(e.target.value);
     const parsed_seconds = (0, _durationFormatter.secondsFromTime)(e.target.value);
 
     if (parsed_seconds != null) {
       props.onChange && props.onChange(parsed_seconds);
     }
-  };
+  }
 
-  const onBlur = e => {
+  function onBlur(e) {
     const parsed_seconds = (0, _durationFormatter.secondsFromTime)(e.target.value);
 
     if (parsed_seconds == null) {
@@ -73,7 +82,7 @@ const DurationInput = props => {
     } else {
       setSeconds(parsed_seconds);
     }
-  };
+  }
 
   return _react2.default.createElement("span", {
     className: 'duration-input-wrapper ' + props.className,
@@ -101,6 +110,6 @@ const DurationInput = props => {
     style: BUTTON_STYLE,
     onClick: () => setSeconds(value - BUTTON_INCREMENT)
   }, "\u25BE")));
-};
+}
 
 exports.default = DurationInput;
