@@ -3,7 +3,7 @@
 
 Easy-to-use duration input field for react.
 
-![Image of Yaktocat](https://github.com/cloudtion/react-duration/blob/master/demo.gif)
+![Input Field Example Image](https://github.com/cloudtion/react-duration/blob/master/demo.gif)
 
 # Getting Started
 
