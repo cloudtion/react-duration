@@ -1,62 +1,64 @@
+### React Duration Input
 
-# React-Duration
+![npm version](https://img.shields.io/npm/v/react-duration)
+![license](https://img.shields.io/npm/l/react-duration)
+![build](https://github.com/cloudtion/react-duration/actions/workflows/ci.yaml/badge.svg)
 
-Easy-to-use duration input field for react.
+A simple, customizable duration input field for React.
 
-![Input Field Example Image](https://raw.githubusercontent.com/cloudtion/react-duration/master/demo.gif)
+![Input Field Example](https://raw.githubusercontent.com/cloudtion/react-duration/master/demo.gif)
 
-# Getting Started
+## Installation
 
-First, install react-duration using npm:
-`npm i react-duration`
+```bash
+npm install react-duration
+```
 
+## Usage
 
-Then import react-duration into your project:
-`import DurationInput from 'react-duration'`
+```tsx
+import { useState } from 'react';
+import DurationInput from 'react-duration';
 
+function App() {
+  const [duration, setDuration] = useState(125.4); // Duration in seconds
 
-Now you're ready to render you're first duration input field:
+  return (
+    <DurationInput
+      value={duration}
+      onChange={setDuration}
+    />
+  );
+}
+```
 
-    class MyApp extends React.Component{
-        
-        constructor(props){
-           
-           this.state = {
-               duration: 125.4 // Duration values are given in seconds.
-           }
-        }
-        
-        render(){
-            
-            return (    
-                <DurationInput
-                    value={ this.state.duration }
-                    onChange={ new_duration=> this.setState({duration: new_duration}) }
-                />
-            );
-        }
-    }
+## Props
 
-# Props
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `number` | Initial duration value in seconds |
+| `onChange` | `(seconds: number) => void` | Callback fired when duration changes |
+| `buttonIncrement` | `number` | Seconds to increment/decrement when buttons are pressed (default: `0.1`) |
+| `minValue` | `number` | Minimum allowed value in seconds |
+| `maxValue` | `number` | Maximum allowed value in seconds |
+| `noButtons` | `boolean` | Hide the increment/decrement buttons |
+| `style` | `CSSProperties` | Custom styles for the wrapper element |
+| `className` | `string` | Custom class name for the wrapper element |
+| `name` | `string` | Name attribute for the input element |
 
-| Prop | Accepts | Description |
-|---|---|---|
-| `buttonIncrement`| Float | The amount, in seconds, to increment the duration by when the up or down butons are presssed. |
-| `maxValue` | Float | The maximum value, in seconds, allowed.  |
-| `minValue` | Float | The minimum value, in seconds, allowed. |
-| `onChange` | Callback | A function to be called whenever the duration is changed to and is in a valid format. |
-| `style` | Object | A valid [react style prop](https://reactjs.org/docs/dom-elements.html#style) to be applied to the DurationInput wrapper.  |
+## Styling
 
+The component exposes the following CSS classes for customization:
 
-# Styling
+| Class | Element |
+|-------|---------|
+| `duration-input-wrapper` | Outer wrapper |
+| `duration-input` | Text input field |
+| `duration-input-button-wrapper` | Button container |
+| `duration-input-button` | Both buttons |
+| `duration-input-up-button` | Increment button |
+| `duration-input-down-button` | Decrement button |
 
-In addition to the passing in a style object for the container using the `style` prop, react-duration has the following classes for easy styling: 
+## License
 
-| Class | Assigned To |
-|---|---|
-| `duration-input-wrapper` | Wrapper around all internal elements |
-| `duration-input` | Internal text input field|
-| `duration-input-button-wrapper` | Wrapper around the up and down buttons |
-| `duration-input-button` | Both the up and down buttons |
-| `duration-up-button` | Up Button |
-| `duration-down-button` | Down Button |
+MIT

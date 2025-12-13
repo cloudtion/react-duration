@@ -1,10 +1,21 @@
 {
   "name": "react-duration",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Duration input field for react.",
+  "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "npx babel src/index.js -d dist --presets @babel/preset-react --plugins transform-es2015-modules-commonjs"
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/"
   },
   "repository": {
     "type": "git",
@@ -17,21 +28,27 @@
     "input"
   ],
   "author": "William Jacobs",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cloudtion/react-duration/issues"
   },
   "homepage": "https://github.com/cloudtion/react-duration#readme",
   "dependencies": {
-    "duration-formatter": "^1.0.0"
+    "duration-str": "^1.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
+    "@eslint/js": "^9.16.0",
+    "@types/react": "^18.3.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "prettier": "^3.4.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.17.0"
   }
 }
