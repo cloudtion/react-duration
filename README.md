@@ -4,7 +4,7 @@
 ![license](https://img.shields.io/npm/l/react-duration)
 ![build](https://github.com/cloudtion/react-duration/actions/workflows/ci.yaml/badge.svg)
 
-A simple, customizable duration input field for React.
+A simple, customizable duration input field for React with Typescript support.
 
 ![Input Field Example](https://raw.githubusercontent.com/cloudtion/react-duration/master/demo.gif)
 
